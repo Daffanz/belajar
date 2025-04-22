@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+    
+        function Header(props) {
+            return <h1>Hello, {props.country}!😂</h1>;
+          }
+    
+        function HomePage(){
+            const countrys = ['Indonesia', 'China', 'Korea'];
+            return (
+            <>
+            <Header country="Indonesia" />
+            <Header country="China" />
+            <ul>
+                {
+                    countrys.map((country) => (
+                        <li key={country}>{country}</li>
+                    ))
+                }
+            </ul>
+
+            </>
+            );
+          }
+    
+          const container = document.getElementById('root');
+          const root = ReactDOM.createRoot(container);
+          root.render(<HomePage />);
+
+    </script>
+  </body>
+</html>
